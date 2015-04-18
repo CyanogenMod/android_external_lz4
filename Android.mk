@@ -33,3 +33,29 @@ LOCAL_SRC_FILES := \
     programs/lz4cli.c
 
 include $(BUILD_EXECUTABLE)
+
+LOCAL_SRC_FILES := \
+    programs/bench.c \
+    programs/lz4cli.c
+
+include $(CLEAR_VARS)
+LOCAL_SRC_FILES := \
+    programs/bench.c \
+    programs/lz4cli.c
+
+LOCAL_MODULE := lz4
+LOCAL_C_INCLUDES := $(common_c_includes)
+LOCAL_MODULE_TAGS := optional
+LOCAL_STATIC_LIBRARIES := liblz4-host
+include $(BUILD_HOST_EXECUTABLE)
+
+include $(CLEAR_VARS)
+LOCAL_SRC_FILES := \
+    programs/bench.c \
+    programs/lz4cli.c
+
+LOCAL_MODULE := lz4c
+LOCAL_C_INCLUDES := $(common_c_includes)
+LOCAL_MODULE_TAGS := optional
+LOCAL_STATIC_LIBRARIES := liblz4-host
+include $(BUILD_HOST_EXECUTABLE)
